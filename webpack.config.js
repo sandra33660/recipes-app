@@ -4,11 +4,15 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const htmlWebpackTemplate = require("html-webpack-template");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+  },
+  devServer: {
+    contentBase: "./dist",
+    hot: true,
   },
   plugins: [
     new CleanWebpackPlugin(),
